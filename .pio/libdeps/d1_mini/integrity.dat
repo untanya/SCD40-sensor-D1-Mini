@@ -1,0 +1,5 @@
+bblanchon/ArduinoJson@^6.21.5
+paulstoffregen/Time@^1.6.1
+sensirion/Sensirion I2C SCD4x@^0.4.0
+bblanchon/StreamUtils@^1.8.0
+dancol90/ESP8266Ping@^1.1.0
