@@ -18,8 +18,8 @@ SensirionI2CScd4x scd4x;
 // SCD4x
 const int16_t SCD_ADDRESS = 0x62;
 
-const char* ssid = "Livebox-B780";
-const char* password = "NkQeVz54GNRnDUMQYu";
+const char* ssid = "XXXX";
+const char* password = "XXXX";
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -68,7 +68,7 @@ String toJson(const char* co2, const char* temperature, const char* humidity) {
 void requestPOST(String jsonData, HTTPClient& http, WiFiClient& client, String serverName) {
   Serial.println("Sending HTTP request...");
 
-  // You can add these debug lines to check the connection status before making the request
+  // debug lines to check the connection status before making the request
   Serial.print("WiFi status: ");
   Serial.println(WiFi.status());
 
@@ -79,9 +79,6 @@ void requestPOST(String jsonData, HTTPClient& http, WiFiClient& client, String s
 
   Serial.println(jsonData);
   Serial.print("\n");
-
-  // If you need Node-RED/server authentication, insert user and password below
-  // http.setAuthorization("REPLACE_WITH_SERVER_USERNAME", "REPLACE_WITH_SERVER_PASSWORD");
 
   // Specify content-type header
   http.addHeader("Content-Type", "application/json");
@@ -187,8 +184,6 @@ void setup() {
     } else {
       Serial.println("Ping failed!");
     }
-
-    // Reste du code...
   }
 
   WiFiClient client;
@@ -266,8 +261,6 @@ void loop() {
 
   WiFiClient client;
   HTTPClient http;
-
-  // http.addHeader("Connexion", "Keep-Alive");
 
   // Read measurement data
   Wire.requestFrom(SCD_ADDRESS, 12);
